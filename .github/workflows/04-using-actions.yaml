@@ -16,4 +16,13 @@ jobs:
       - name: install tree
         run: sudo apt-get install -y tree
       - name: List files
-        run: tree -L 2
+        run: tree -L 4
+      - name: install dependencies
+        run: npm install
+        working-directory: ./04-using-actions/react-app
+      - name: Run tests
+        run: npm test -- --watchAll=false
+        working-directory: ./04-using-actions/react-app
+      - name: Build app
+        run: npm run build
+        working-directory: ./04-using-actions/react-app
