@@ -14,6 +14,6 @@ jobs:
         with:
           node-version: '24.x.x'
       - name: install tree
-        run: apt-get install -y tree
+        run: sudo apt-get install -y tree
       - name: List files
         run: tree -L 2
