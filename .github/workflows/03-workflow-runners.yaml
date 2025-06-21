@@ -1,0 +1,23 @@
+name: 03 - Workflow Runners
+run-name: 03 - Workflow Runners
+on:
+  push:
+jobs:
+  windows-runner:
+    runs-on: windows-2025
+    steps:
+      - name: windows runner
+        shell: bash
+        run: echo "This job runs on a ${{ runner.os }} runner."
+  macos-runner:
+    runs-on: macos-14
+    steps:
+      - name: macos runner
+        shell: bash
+        run: echo "This job runs on a ${{ runner.os }} runner."
+  ubuntu-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ubuntu runner
+        shell: bash
+        run: echo "This job runs on a ${{ runner.os }} runner."
