@@ -1,7 +1,6 @@
 name: 04 - Using Actions
 run-name: 04 - Using Actions ${{ github.event_name }}
 on:
-  push:
   pull_request:
 jobs:
   build:
