@@ -1,7 +1,7 @@
 name: 03 - Workflow Runners
 run-name: 03 - Workflow Runners
 on:
-  push:
+  workflow_dispatch:
 jobs:
   windows-runner:
     runs-on: windows-2025
@@ -13,11 +13,9 @@ jobs:
     runs-on: macos-14
     steps:
       - name: macos runner
-        shell: bash
         run: echo "This job runs on a ${{ runner.os }} runner."
   ubuntu-runner:
     runs-on: ubuntu-latest
     steps:
       - name: ubuntu runner
-        shell: bash
         run: echo "This job runs on a ${{ runner.os }} runner."
