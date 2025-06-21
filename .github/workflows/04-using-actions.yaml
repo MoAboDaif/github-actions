@@ -1,0 +1,19 @@
+name: 04 - Using Actions
+run-name: 04 - Using Actions ${{ github.event_name }}
+on:
+  push:
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.x.x'
+      - name: install tree
+        run: apt-get install -y tree
+      - name: List files
+        run: tree -L 2
