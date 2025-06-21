@@ -1,6 +1,6 @@
 name: 01 - Building Blocks
+run-name: 01 - Building Blocks Workflow
 on: 
-  push:
   workflow_dispatch:
 
 jobs:
