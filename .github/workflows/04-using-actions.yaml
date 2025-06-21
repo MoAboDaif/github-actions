@@ -18,11 +18,14 @@ jobs:
       - name: List files
         run: tree -L 4
       - name: install dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./04-using-actions/react-app
       - name: Run tests
-        run: npm test -- --watchAll=false
+        run: npm run test -- --watchAll=false
         working-directory: ./04-using-actions/react-app
       - name: Build app
         run: npm run build
+        working-directory: ./04-using-actions/react-app
+      - name: run app
+        run: npm run start
         working-directory: ./04-using-actions/react-app
