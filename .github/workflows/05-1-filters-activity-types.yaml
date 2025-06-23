@@ -9,8 +9,6 @@ on:
       - opened
       - synchronize
     
-    
-
 jobs: 
   echo:
     runs-on: ubuntu-latest
