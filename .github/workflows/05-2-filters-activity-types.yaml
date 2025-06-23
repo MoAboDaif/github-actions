@@ -1,12 +1,7 @@
 name: 05 2 Filters Activity Types
 run-name: 05 2 Filters Activity Types
 on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - closed
-
+  workflow_dispatch:
 jobs:
   echo:
     runs-on: ubuntu-latest
