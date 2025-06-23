@@ -17,4 +17,4 @@ jobs:
         run: |
           echo "git head ref ${{ github.head_ref }}"
           echo "git ref ${{ github.ref_name }}"
-          echo "git ref ${{ github.ref_type }}"
+          echo "git ref ${{ github.action_ref}}"
