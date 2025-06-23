@@ -1,7 +1,7 @@
 name: 04 - Using Actions
 run-name: 04 - Using Actions ${{ github.event_name }}
 on:
-  pull_request:
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
