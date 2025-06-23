@@ -1,0 +1,22 @@
+name: 05 - 1 - Event Filters and Activity Types
+run-name: 05 - 1 - Event Filters and Activity Types
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+    
+    
+
+jobs: 
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: |
+          echo "git ref ${{ github.ref }}"
+          echo "git ref ${{ github.ref_name }}"
+          echo "git ref ${{ github.ref_type }}"
