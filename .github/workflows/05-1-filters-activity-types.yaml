@@ -15,6 +15,6 @@ jobs:
     steps:
       - name: echo
         run: |
-          echo "git ref ${{ github.ref }}"
+          echo "git ref ${{ github.head_ref }}"
           echo "git ref ${{ github.ref_name }}"
           echo "git ref ${{ github.ref_type }}"
