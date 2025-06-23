@@ -9,14 +9,13 @@ on:
       - opened
       - synchronize
     
-    
-
 jobs: 
   echo:
     runs-on: ubuntu-latest
     steps:
       - name: echo
         run: |
-          echo "git ref ${{ github.ref }}"
+          echo "git head ref ${{ github.head_ref }}"
           echo "git ref ${{ github.ref_name }}"
           echo "git ref ${{ github.ref_type }}"
+          exit 1
