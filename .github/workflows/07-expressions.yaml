@@ -8,7 +8,7 @@ on:
         default: false
         type: boolean
       Branch:
-        default: "'main'"
+        default: "main"
         type: string
 jobs:
   echo:
