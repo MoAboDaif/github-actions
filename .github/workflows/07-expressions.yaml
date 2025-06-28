@@ -25,4 +25,7 @@ jobs:
         name: '[debug] Print when triggered from main'
         run: | 
           echo "I was triggered from ${{ github.ref_name }} branch" 
-          
+      - name: Greating
+        run: |
+          echo "Hello, world!"
+          echo "This is a workflow that uses expressions to control execution flow."
