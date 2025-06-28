@@ -3,20 +3,15 @@ run-name: 09 - Using Functions
 
 on:
   workflow_dispatch:
-  push:
-  pull_request:
-    branches:
-      - main
 
 jobs:
   echo1:
     runs-on: ubuntu-latest
     steps:
-      - name: Failing step
+      - name: initial step
         run: |
           sleep 10
-          echo "This step is set to fail."
-          exit 1
+          echo "This step will not fail."
       - if: ${{ success() }}
         name: I will be skipped
         run: |
