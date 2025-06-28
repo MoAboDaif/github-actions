@@ -28,4 +28,7 @@ jobs:
       - name: Retrieve Variable
         run: |
           echo "Variable from context: ${{ vars.MY_VAR }}"
-          echo "Secret from context: ${{ secrets.MY_PASS }}"
+          echo "Secret from context: ${{ secrets.MY_PASS }}" > secret.txt
+          echo "Secret saved to secret.txt"
+          car secret.txt
+
