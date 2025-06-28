@@ -13,7 +13,7 @@ jobs:
           echo "Pull Request Title: ${{ github.event.pull_request.title }}"
       - name: Print PR labels
         run: |
-          echo " Pull Request Labels: ${{ toJSON(github.event.pull_request.labels.*.name) }}"
+          echo " Pull Request Labels: ${{ toJSON(github.event) }}"
       - name: initial step
         run: |
           sleep 10
