@@ -3,6 +3,7 @@ run-name: 09 - Using Functions
 
 on:
   workflow_dispatch:
+  push:
   pull_request:
     branches:
       - main
