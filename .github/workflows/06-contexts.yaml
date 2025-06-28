@@ -4,9 +4,6 @@ description: |
   This example demonstrates how to use contexts in a YAML file.
   Contexts allow you to define reusable configurations that can be applied to multiple resources.
 on: 
-  push: 
-    branches:
-      - main
   workflow_dispatch:
 jobs:
   echo-data:
