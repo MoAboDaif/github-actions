@@ -9,15 +9,15 @@ jobs:
   echo1:
     runs-on: ubuntu-latest
     steps:
-#      - name: Print PR title
-#        run: echo "Pull Request Title: ${{ github.event.pull_request.title }}"
+      - name: Print PR title
+        run: echo "Pull Request Title: ${{ github.event.pull_request.title }}"
 
-#      - name: Print PR labels
-#        run: echo "Pull Request Labels: ${{ toJSON(github.event.pull_request.labels.*.name) }}"
+      - name: Print PR labels
+        run: echo "Pull Request Labels: ${{ toJSON(github.event.pull_request.labels.*.name) }}"
 
-      - name: Bug fix
-        if: ${{ failure() && !cancelled() || contains(github.event.pull_request.title, 'tests') }}
-        run: echo "I am a bug fix"
+#      - name: Bug fix
+#        if: ${{ failure() && !cancelled() || contains(github.event.pull_request.title, 'tests') }}
+#        run: echo "I am a bug fix"
 
       - name: initial step
         run: |
