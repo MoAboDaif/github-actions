@@ -7,14 +7,22 @@ on:
       Debug:
         default: false
         type: boolean
+      Branch:
+        default: "'main'"
+        type: string
 jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
       - if: ${{ inputs.Debug == true }}
-        name: Debug Print start-up data
+        name: '[debug] Print start-up data'
         run: |
           echo "Triggered by: ${{ github.event_name }}"
           echo "Branch: ${{ github.ref_name }}"
           echo "Commit SHA: ${{ github.sha }}"
           echo "Runner OS: ${{ runner.os }}"
+      - if: ${{ inputs.Debug == true && github.ref_name == 'main' }}
+        name: '[debug] Print when triggered from main'
+        run: | 
+          echo "I was triggered from ${{ github.ref_name }} branch" 
+      - if: ${{ inputs.Debug == false }}
