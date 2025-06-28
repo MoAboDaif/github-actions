@@ -4,36 +4,29 @@ run-name: 09 - Using Functions
 on:
   workflow_dispatch:
   pull_request:
-
 jobs:
   echo1:
     runs-on: ubuntu-latest
     steps:
       - name: Print PR title
-        if: ${{ github.event_name == 'pull_request' }}
-        run: echo "Pull Request Title: ${{ github.event.pull_request.title }}"
-
+        run: |
+          echo "Pull Request Title: ${{ github.event.pull_request.title }}"
       - name: Print PR labels
-        if: ${{ github.event_name == 'pull_request' }}
-        run: echo "Pull Request Labels: ${{ toJSON(github.event.pull_request.labels.*.name) }}"
-
-#      - name: Bug fix
-#        if: ${{ failure() && !cancelled() || contains(github.event.pull_request.title, 'tests') }}
-#        run: echo "I am a bug fix"
-
+        run: |
+          echo " Pull Request Labels: ${{ toJSON(github.event.pull_request.labels.*.name) }}"
       - name: initial step
         run: |
           sleep 10
           echo "This step will not fail."
-
-      - name: I will be skipped
-        if: ${{ !success() }}
-        run: echo "This step will be skipped if the previous step failed."
-
-      - name: I will run if the previous step failed
-        if: ${{ failure() }}
-        run: echo "This step will run if the previous step failed."
-
-      - name: I will run if the workflow was cancelled
-        if: ${{ cancelled() }}
-        run: echo "This step will run if the workflow was cancelled."
+      - if: ${{ success() }}
+        name: I will be skipped
+        run: |
+          echo "This step will be skipped if the previous step failed."
+      - if: ${{ failure() }}
+        name: I will run if the previous step failed
+        run: |
+          echo "This step will run if the previous step failed."
+      - if: ${{ cancelled() }}
+        name: I will run if the workflow was cancelled
+        run: |
+          echo "This step will run if the workflow was cancelled."
