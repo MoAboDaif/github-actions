@@ -5,12 +5,9 @@ on:
   workflow_dispatch:
     inputs:
       debug:
-        description: 'Enable debug output'
+        description: 'Enable Debug'
         default: false
         type: boolean
-  push:
-    branches:
-      - main
 jobs:
   echo:
     runs-on: ubuntu-latest
