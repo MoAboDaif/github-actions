@@ -1,5 +1,5 @@
 name: 07 - Using Expressions
-run-name:  '07 - Using Expressions - ${{ github.ref_name }} - Debug Mode: ${{ inputs.Debug || false }}'
+run-name:  "07 - Using Expressions - ${{ github.ref_name }} - Debug Mode: ${{ inputs.Debug && 'ON' || 'OFF' }}"
 
 on: 
   workflow_dispatch:
