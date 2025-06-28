@@ -4,15 +4,15 @@ run-name: 07 - Using Expressions
 on: 
   workflow_dispatch:
     inputs:
-      debug:
+      Debug:
         default: false
         type: boolean
 jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ inputs.debug == true }}
-        name: debug Print start-up data
+      - if: ${{ inputs.Debug == true }}
+        name: Debug Print start-up data
         run: |
           echo "Triggered by: ${{ github.event_name }}"
           echo "Branch: ${{ github.ref_name }}"
