@@ -7,9 +7,9 @@ on:
       Debug:
         default: false
         type: boolean
-      Branch:
-        default: "main"
-        type: string
+      Fail:
+        default: false
+        type: boolean
 jobs:
   echo:
     runs-on: ubuntu-latest
@@ -29,3 +29,8 @@ jobs:
         run: |
           echo "Hello, world!"
           echo "This is a workflow that uses expressions to control execution flow."
+      - if: ${{ inputs.Fail == true }}
+        name: Fail step
+        run: |
+          echo "This step is set to fail because the input 'Fail' is true."
+          exit 1
