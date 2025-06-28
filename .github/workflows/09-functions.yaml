@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print PR title
+        if: ${{ github.event_name == 'pull_request' }}
         run: echo "Pull Request Title: ${{ github.event.pull_request.title }}"
 
       - name: Print PR labels
+        if: ${{ github.event_name == 'pull_request' }}
         run: echo "Pull Request Labels: ${{ toJSON(github.event.pull_request.labels.*.name) }}"
 
 #      - name: Bug fix
