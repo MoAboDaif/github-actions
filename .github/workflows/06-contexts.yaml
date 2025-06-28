@@ -24,4 +24,3 @@ jobs:
           echo "Run Number: ${{ github.run_number }}"
           echo "Job: ${{ github.job }}"
           echo "Run Attempt: ${{ github.run_attempt }}"
-          echo "Event Payload: ${{ toJson(github.event) }}"
