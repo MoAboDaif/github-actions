@@ -25,4 +25,4 @@ jobs:
         name: '[debug] Print when triggered from main'
         run: | 
           echo "I was triggered from ${{ github.ref_name }} branch" 
-      - if: ${{ inputs.Debug == false }}
+          
