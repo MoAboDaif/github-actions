@@ -11,20 +11,20 @@ jobs:
   echo1:
     runs-on: ubuntu-latest
     steps:
-    - name: Failing step
-      run: |
-        sleep 10
-        echo "This step is set to fail."
-        exit 1
-    - if: ${{ success() }}
-      name: I will be skipped
-      run: |
-        echo "This step will be skipped if the previous step failed."
-    - if: ${{ failure() }}
-      name: I will run if the previous step failed
-      run: |
-        echo "This step will run if the previous step failed."
-    - if: ${{ cancelled() }}
-      name: I will run if the workflow was cancelled
-      run: |
-        echo "This step will run if the workflow was cancelled."
+      - name: Failing step
+        run: |
+          sleep 10
+          echo "This step is set to fail."
+          exit 1
+      - if: ${{ success() }}
+        name: I will be skipped
+        run: |
+          echo "This step will be skipped if the previous step failed."
+      - if: ${{ failure() }}
+        name: I will run if the previous step failed
+        run: |
+          echo "This step will run if the previous step failed."
+      - if: ${{ cancelled() }}
+        name: I will run if the workflow was cancelled
+        run: |
+          echo "This step will run if the workflow was cancelled."
