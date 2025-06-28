@@ -14,7 +14,7 @@ jobs:
       - name: Print PR labels
         run: |
           echo " Pull Request Labels: ${{ toJSON(github.event.pull_request.labels.*.name) }}"
-      - if: ${{ failure() && !cancelled() || contains(toJSON(github.event.pull_request.title), "tests")}}
+      - if: ${{ failure() && !cancelled() || contains( toJSON(github.event.pull_request.title), toJSON("tests")) }}
         name: Bug fix
         run: echo "I am a bug fix"
       - name: initial step
