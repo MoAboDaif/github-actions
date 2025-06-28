@@ -30,4 +30,3 @@ jobs:
         name: I will run if the workflow was cancelled
         run: |
           echo "This step will run if the workflow was cancelled."
-
