@@ -17,9 +17,9 @@ jobs:
     steps:
       - name: Running unit tests
         run: echo "Running tests..."
-      - name: Failing tests
+      - if: ${{ ! inputs.pass-unit-tests }}
+        name: Failing tests
         run: exit 1
-        if: ${{ github.inputs.pass-unit-tests == false }}
   deploy-nonprod:
     runs-on: ubuntu-latest
     needs: 
