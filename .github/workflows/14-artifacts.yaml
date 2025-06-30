@@ -32,7 +32,9 @@ jobs:
         id: cache
         uses: actions/cache@v4
         with:
-          path: 14-artifacts/ntfy-desktop/node_modules
+          paths: 
+            - 14-artifacts/ntfy-desktop/node_modules
+            - 14-artifacts/ntfy-desktop/src/node_modules
           key: ${{ runner.os }}-${{ hashFiles('14-artifacts/**/package-lock.json') }}
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
