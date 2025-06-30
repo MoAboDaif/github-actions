@@ -59,9 +59,7 @@ jobs:
         with:
           name: ${{ inputs.artifact-name }}-${{ github.run_id }}
           path: app/
-      - name: install tree
-        run: sudo apt-get install tree
       - name: List Artifact Contents
         run: |
           echo ${{ needs.build.outputs.steps.cache.cache-hit }}
-          tree .
+          tree . -a
