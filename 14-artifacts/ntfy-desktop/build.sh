@@ -213,4 +213,3 @@ echo "==========================================================================
 echo
 
 echo "Build completed. Press any key to exit..."
-read -n 1 -s
