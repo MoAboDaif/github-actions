@@ -36,7 +36,9 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('14-artifacts/**/package-lock.json') }}
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: |
+          npm ci || npm install
+          cd src && npm ci || npm install 
       - name: Unit test
         run: |
           npm run test || echo "Tests failed, but continuing to build artifact."
