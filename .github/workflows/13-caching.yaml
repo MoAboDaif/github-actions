@@ -32,7 +32,15 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
+    - name: Cache node modules
+      id: chache
+      if: inputs.cache-enabled == 'true'
+      uses: actions/cache@v4
+      with:
+        path: 13-caching/react-app/node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('13-caching/react-app/package-lock.json') }}
     - name: install dependencies
+      if: inputs.cache-enabled == 'false' || steps.chache.outputs.cache-hit != 'true'
       run: npm ci
     - name: Testing
       run: npm run test
