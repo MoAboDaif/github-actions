@@ -1,0 +1,42 @@
+name: 13 - Using Caching
+run-name: 13 - Using Caching | Caching: ${{ input.cache-enabled && TRUE || FALSE }}
+on: 
+  workflow_dispatch:
+    inputs:
+      cache-enabled:
+        description: 'Enable caching?'
+        required: true
+        default: 'true'
+        type: boolean
+      node-version:
+        description: 'Node.js version'
+        required: true
+        default: '20.x'
+        type: choice
+        options:
+          - '18.x'
+          - '20.x'
+          - '22.x'
+          - '24.x'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: 13-caching/react-app
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ input.node-version }}
+    - name: install dependencies
+      run: npm ci
+    - name: Testing
+      run: npm run test -- --watch
+    - name: Build
+      run: npm run build
+    - name: Deploying to non-production
+      run: echo "Deploying to non-production .... done"
