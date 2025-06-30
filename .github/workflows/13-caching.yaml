@@ -1,5 +1,5 @@
 name: 13 - Using Caching
-run-name: 13 - Using Caching | Caching '${{ input.cache-enabled && TRUE || FALSE }}'
+run-name: 13 - Using Caching | Caching '${{ inputs.cache-enabled && TRUE || FALSE }}'
 on: 
   workflow_dispatch:
     inputs:
