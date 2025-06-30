@@ -28,14 +28,15 @@ jobs:
         with:
           node-version: '20'
       - name: Caching step
-        if: ${{ inputs.cache-enabled }}
+        if: inputs.cache-enabled
         id: cache
         uses: actions/cache@v4
         with:
           path: 14-artifacts/node_modules
           key: ${{ runner.os }}-${{ hashFiles('14-artifacts/**/package-lock.json') }}
       - name: Install Dependencies
-        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
       - name: Build Project
         run: npm run build
       - name: Create Artifact
