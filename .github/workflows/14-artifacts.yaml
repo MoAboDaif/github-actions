@@ -35,8 +35,7 @@ jobs:
           path: 14-artifacts/node_modules
           key: ${{ runner.os }}-${{ hashFiles('14-artifacts/**/package-lock.json') }}
       - name: Install Dependencies
-        if: ${{ steps.cache.outputs.cache-hit != 'true' }} || ${{ !inputs.cache-enabled }}
-        run: npm ci
+        if: ${{ steps.cache.outputs.cache-hit != 'true' }}
       - name: Build Project
         run: npm run build
       - name: Create Artifact
