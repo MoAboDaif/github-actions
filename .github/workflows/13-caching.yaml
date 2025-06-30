@@ -40,7 +40,7 @@ jobs:
         path: 13-caching/react-app/node_modules
         key: react-app-${{ hashFiles('13-caching/react-app/package-lock.json') }}
     - name: install dependencies
-      if: inputs.cache-enabled == 'false' || steps.cache.outputs.cache-hit != 'true'
+      if: steps.cache.outputs.cache-hit != 'true' || inputs.cache-enabled == 'false'
       run: npm ci
     - name: Testing
       run: npm run test
