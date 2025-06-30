@@ -1,148 +1,23 @@
-# #
-#   Ignore everything
-# #
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-*
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# #
-#   [WL]: Git Base Folders/Files
-# #
+# testing
+/coverage
 
-!.all-contributorsrc
-!.gitignore
-!*CHANGELOG.md
-!*CODE_OF_CONDUCT.md
-!*CONTRIBUTE.md
-!*CONTRIBUTING.md
-!*DECISION_FLOW.md
-!*LICENSE
-!*LICENSE.md
-!*README.md
-!/.gitea
-!/.github
-!renovate.json
+# production
+/build
 
-# #
-#   [WL]: Manifest Folders
-# #
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-!/Manifest
-
-# #
-#   [WL]: Tools Folders
-# #
-
-!/Tools
-
-# #
-#   [WL]: vendor
-# #
-
-!/vendor
-
-# #
-#   [WL]: assets
-# #
-
-!/assets
-
-# #
-#   [WL]: Docs Folder
-# #
-
-!/docs
-!/pages
-
-# #
-#   [WL]: Source Folder
-# #
-
-!/lib
-!/notifiers
-
-# #
-#   [WL]: Linting
-# #
-
-!.editorconfig
-!eslint.config.mjs
-!eslintrc
-!prettierignore
-!prettierrc
-
-# #
-#   [WL]: Dependency Configs
-# #
-
-!rollup.config.js
-!rollup.config.mjs
-!tsconfig.json
-
-# #
-#   [WL]: NPM
-# #
-
-!npmignore
-!.npmrc
-
-# #
-#   [WL]: Signing / Digests
-# #
-
-!sign.bat
-!*SHA*.asc
-!*SHA*.sig
-
-# #
-#   [WL]: Base Files
-# #
-
-!*.bat
-!*.css
-!*.sh
-!*index.js
-!*manifest.json
-!*ntfy.js
-!*preload.js
-!*preloader.js
-!*renderer.js
-!*storage.js
-!package.json
-!root.cjs
-!root.mjs
-!versions.json
-
-!/src
-!/src/*.ts
-!/src/vitest.config.js
-/src/node_modules
-/src/playwright
-/src/playwright-report
-/src/test-results
-
-!src/Classes/
-!src/Classes/*.js
-
-!/src/assets
-!/src/assets/**
-
-!/src/tests
-!/src/tests/**
-
-!/src/pages
-!/src/pages/**
-
-# #
-#   [WL]: Electron
-# #
-
-!/electron
-
-# #
-#   [WL]: Tests
-# #
-
-!*playwright.config.js
-!/example
-!/tests
-!/Tests
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
