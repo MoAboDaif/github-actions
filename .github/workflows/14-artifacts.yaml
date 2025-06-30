@@ -42,6 +42,8 @@ jobs:
       - name: Unit test
         run: |
           npm run test || echo "Tests failed, but continuing to build artifact."
+          cd src && \
+          npm run test || echo "Tests in src failed, but continuing to build artifact."
       - name: Build Project
         run: bash ./build.sh
       - name: Create Artifact
