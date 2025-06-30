@@ -19,14 +19,14 @@ jobs:
       steps.cache.cache-hit: ${{ steps.cache.outputs.cache-hit }}
     defaults:
       run:
-        working-directory: 14-artifacts
+        working-directory: 14-artifacts/ntfy-desktop
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: install node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24.x'
       - name: Caching step
         if: inputs.cache-enabled
         id: cache
@@ -37,6 +37,8 @@ jobs:
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Unit test
+        run: npm run test
       - name: Build Project
         run: npm run build
       - name: Create Artifact
