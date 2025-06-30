@@ -106,7 +106,7 @@ const stripAnsi = ( str ) =>
 
 const cleanMessage = ( msgArray ) =>
 {
-    return msgArray.map( ( item ) => 
+    return msgArray.map( ( item ) =>
     {
         // Handle Symbol values safely before passing to stripAnsi
         if ( typeof item === 'symbol' )
@@ -123,7 +123,7 @@ const cleanMessage = ( msgArray ) =>
 
 const safeJoin = ( msgArray, separator = ' ' ) =>
 {
-    return msgArray.map( ( item ) => 
+    return msgArray.map( ( item ) =>
     {
         // Handle Symbol values safely
         if ( typeof item === 'symbol' )
@@ -246,24 +246,29 @@ class Log
     }
 
 
-    static info(...msg) {
-        if (getLogLevel() < 4) return;
+    static info( ...msg )
+{
+        if ( getLogLevel() < 4 ) return;
 
-        try {
+        try
+{
             // Clean messages and log
             const msgForLog = msg;
-            const cleanedMsg = cleanMessage(msgForLog);
-            log.info('[info]', cleanedMsg.join(' '));
+            const cleanedMsg = cleanMessage( msgForLog );
+            log.info( '[info]', cleanedMsg.join( ' ' ) );
 
             // Console output for development
-            if (isDevelopment) {
-                console.info(chalk.white.bgBlueBright.bold(` ${name} `), chalk.white(' '), this.now(), chalk.blueBright(safeJoin(msg)));
+            if ( isDevelopment )
+{
+                console.info( chalk.white.bgBlueBright.bold( ` ${ name } ` ), chalk.white( ' ' ), this.now(), chalk.blueBright( safeJoin( msg ) ) );
             }
 
             // Send to renderer console
-            sendToRendererConsole('info', safeJoin(msg), true);
-        } catch (error) {
-            console.warn('Error in logging:', error);  // Handle the error
+            sendToRendererConsole( 'info', safeJoin( msg ), true );
+        }
+ catch ( error )
+{
+            console.warn( 'Error in logging:', error );  // Handle the error
         }
     }
 
